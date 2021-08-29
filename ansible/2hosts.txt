@@ -1,8 +1,8 @@
 [linux_slave1]
-slave1 ansible_host=192.168.0.202 ansible_ssh_private_key_file=/home/mateman/.ssh/mateman-key1.pem
+linux1 ansible_host=192.168.0.202 ansible_ssh_private_key_file=/home/mateman/.ssh/mateman-key1.pem
 
 [linux_slave2]
-slave2 ansible_host=192.168.0.203 ansible_ssh_private_key_file=/home/mateman/.ssh/mateman-key2.pem
+linux2 ansible_host=192.168.0.203 ansible_ssh_private_key_file=/home/mateman/.ssh/mateman-key2.pem
 
 [linux_all:children]
 linux_slave1
@@ -12,7 +12,7 @@ linux_slave2
 ansible_user = mateman
 
 [windows_servers]
-windows2016 ansible_host=192.168.0.250
+windows2k16 ansible_host=192.168.0.250
 
 [windows_servers:vars]
 ansible_user = Administrator
