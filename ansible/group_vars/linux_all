@@ -1,0 +1,5 @@
+---
+
+ansible_user      : mateman
+ansible_sudo_pass : K1b@but
+...

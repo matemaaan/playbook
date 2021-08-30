@@ -1,0 +1,28 @@
+---
+
+- name: Install docker and upload web page
+  hosts: linux_all
+  become: yes
+
+  vars:
+    source_file: ./WebSite/
+    destin_file: /var/www/html/
+
+  tasks:
+  - name: Install Docker-ce
+    yum: name=docker-ce state=latest
+
+  - name: create directory in servers
+    file: path={{ destin_file }} state=directory mode=0775 owner=mateman group=mateman
+  
+  - name: copy web page to servers
+    copy: src={{ source_file }} dest={{ destin_file }} mode=0775 owner=mateman group=mateman
+
+  - name: kill dockers
+    shell: docker kill $( docker ps -q)
+
+  - name: Start Docker
+    shell: docker run -v /var/www/html/:/usr/share/nginx/html/ -d -p 1234:80 nginx
+
+
+...

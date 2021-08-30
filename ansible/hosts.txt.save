@@ -1,0 +1,12 @@
+[linux_servers]
+slave1 ansible_host=192.168.0.202 ansible_user=mateman ansible_ssh_private_key_file=/home/mateman/.ssh/mateman-key1.pem
+slave2 ansible_host=192.168.0.203 ansible_user=mateman ansible_ssh_private_key_file=/home/mateman/.ssh/mateman-key2.pem
+
+[windows_servers]
+windows2016 ansible_host=192.168.0.250
+
+[windows_servers:vars]
+ansible_user = Administrator
+ansible_password = K1b@butansible_port = 5986
+ansible_connection = winrm
+ansible_winrm_server_cert_validation = ignore
